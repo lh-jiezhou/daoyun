@@ -5,10 +5,16 @@ const Controller = require('egg').Controller;
 class NewsController extends Controller {
     async index() {
 
-        // this.ctx.body = '新闻页面'
+        // 调用服务Service里的方法 (无需导入)
+        var list = await this.service.news.getNewsList() 
+
+        var msg = "成功"
 
         // ctx为异步方法
-        await this.ctx.render('news')
+        await this.ctx.render('news', {
+            msg: msg,
+            list: list
+        })
     }
 
     async content() {
