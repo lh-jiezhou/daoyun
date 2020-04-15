@@ -16,7 +16,16 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1586588857521_2667';
 
   // add your middleware config here
-  config.middleware = [];
+  // 增加配置中间件
+  config.middleware = [
+    'printdate',
+    'forbidip'
+  ]; //与middleware中文件名对应
+
+  // 给中间件配置参数 options
+  config.printdate = {
+    aaa: 'aaaaa'
+  }
 
   // 视图渲染
   config.view = {
@@ -65,6 +74,10 @@ module.exports = appInfo => {
     origin: '*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
+  // 配置公共的api(爬虫实验)
+  config.api = 'http://www.phonegap100.com/';
+
+
 
   // add your user config here
   const userConfig = {
