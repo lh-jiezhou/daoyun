@@ -1,17 +1,17 @@
 /* jshint indent: 1 */
 
-module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('test', {
+module.exports = app => {
+	const { STRING, INTEGER } = app.Sequelize; 
+	const Test = app.model.define('test', {
 		test_id: {
-			type: DataTypes.INTEGER(11),
+			type: INTEGER,
 			allowNull: false,
 			primaryKey: true
 		},
 		test_name: {
-			type: DataTypes.STRING(255),
+			type: STRING,
 			allowNull: true
 		}
-	}, {
-		tableName: 'test'
-	});
+	})
+	return Test;
 };
