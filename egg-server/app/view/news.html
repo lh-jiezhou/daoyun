@@ -6,9 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>新闻列表 {{msg}} </h1>
+    <img src="/public/images/lady gaga_1.jpg" width="10%">
+    <h1>新闻列表数据 {{msg}} {{ helper.foo() }}</h1>
     <ul>
-        {{list}}
+        {% for item in list %}
+        <li><a href="/newscontent?aid={{item.aid}}">{{ item.title }}</a>
+            <span>---{{ item.dateline}}</span>
+        </li>
+        {% endfor %}
     </ul>
 </body>
 </html>

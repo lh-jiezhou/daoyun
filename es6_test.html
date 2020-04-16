@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>es6学习</title>
+</head>
+<body>
+     
+</body>
+
+</html>
+
+<script>
+    // 二、箭头函数使用
+    // 1.简单改写
+    // function doubleValue (value) {
+    //     return value * 2
+    // }
+    const doubleValue = (value) => { //改写
+        return value * 2;
+    }
+    console.log(doubleValue(4))
+    const addNumbers = (a, b) => {
+        return a + b;
+    }
+    console.log(addNumbers(3, 4))
+
+    // 2.进一步简化 (当函数体只有一行)
+    // const printName = (name) => {
+    //     "hello " + name
+    // }
+    const printName = name => "hello " + name
+    console.log(printName("lihao"))
+
+    // 3.遍历数组
+    const companies = ["google", "huawei"]
+    // const result = companies.map(function(company) { //map为es5中函数,类似for
+    //     return company + "is a company";
+    // })
+    const result = companies.map( company => company + "is a company" )
+    console.log(result)
+    const ages = [14, 18, 21]
+    // const result2 = ages.filter(function(age) { // es5中filter函数
+    //     return age > 18;
+    // })
+    const result2 = ages.filter(age => age > 18)
+    console.log(result2)
+    const result3 = ages.filter(age => { //两行不能简化 
+        const nextYearAge = age + 1;
+        return nextYearAge > 18;
+    })
+    console.log(result3)
+
+    // 4.当前 this 值？
+    // 普通函数: 会重新绑定this
+    // 箭头函数: 不会重新绑定this
+
+    // 三、模板字符串
+
+
+
+
+
+</script>

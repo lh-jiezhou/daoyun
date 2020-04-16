@@ -24,7 +24,7 @@ module.exports = appInfo => {
 
   // 给中间件配置参数 options
   config.printdate = {
-    aaa: 'aaaaa'
+    a: '中间件参数'
   }
 
   // 视图渲染

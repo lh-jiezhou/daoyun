@@ -13,9 +13,13 @@ class HomeController extends Controller {
     })
   }
 
-  async news() {
-    const { ctx } = this;
-    ctx.body = 'hi, news';
+  async homeinfo() {
+    this.ctx.body = '主页信息';
+  }
+
+  // 接受表单post请求 this.ctx.request.body接收数据
+  async add() {
+    console.log(this.ctx.request.body)
   }
 }
 
