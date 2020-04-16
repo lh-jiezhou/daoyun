@@ -1,7 +1,7 @@
 'use strict';
 
 const SequelizeAuto = require('sequelize-auto');
-const config = require('./config/config.default.js')({ name: '' });
+const config = require('../config/config.default.js')({ name: '' });
 
 const db = {
   database: config.sequelize.database,
@@ -17,7 +17,7 @@ console.log(db)
 const auto = new SequelizeAuto(db.database, db.username, db.password, {
   host: db.host,
   dialect: db.dialect,
-  directory: './app/model', // prevents the program from writing to disk
+  directory: '../app/model', // prevents the program from writing to disk
   port: db.port,
 //   additional: {
 //     timestamps: false,
