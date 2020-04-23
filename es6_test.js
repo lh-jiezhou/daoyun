@@ -105,18 +105,151 @@
 
 
 // 五、解构赋值
+// const person = {
+//     name: "lihao",
+//     age: 22,
+//     city: "湖南",
+//     social: {
+//         qq: "897587636",
+//         phone: "123"
+//     }
+// }
+// // 1.普通赋值
+// const name1 = person.name
+// const age1 = person.age
+// const qq1 = person.social.qq
+// console.log(name1, age1, qq1)
+
+// //2. 解构赋值
+// // object用{}花括号, 里边的变量名和person中一样
+// const { age, city} = person 
+// // const [name, age, city] = person // 数组用[]方括号
+
+// console.log( city, age)
+
+// // const { qq, phone } = person.social
+// // console.log(qq, phone)
+// const { name, social:{qq}} = person
+// console.log(name, qq)
+
+// // 3.解构赋值起别名
+// const {
+//     name: personName = "hhh", // 默认值（假如name不存在）
+//     social: { qq: QQ }
+// } = person
+// console.log(personName, QQ)
+
+// // 4.数组的解构赋值类似 
+// // 一个应用实例 变量互换
+// let a = 1;
+// let b = -1;
+// [a, b] = [b, a] // 可读性好
+// console.log(a, b)
+
+// // 字符串分割
+// const record = "pocky, 3.98, Oct 11 2019"
+// const recordArr = record.split(",")
+// console.log(recordArr)
+// const [name, price, data] = recordArr
+// console.log(name, price, data)
+
+
+// 六、剩余参数和扩展参数
+// // 1.剩余参数
+// const team = ["易建联", "郭艾伦", "翟小川", "赵继伟"]
+// // const [ captain, assistant, players] = team
+// const [captain, assistant, ...players] = team // wes bos
+// console.log(captain, assistant, players)
+
+// // 用剩余参数对任意个数参数 排序 （剩余参数:多个数合并为一个数组）
+// function sortNumber(...nums) {
+//     if (nums.length == 0) {
+//         return [];
+//     } else {
+//         // return nums.sort();
+//         return nums.sort((a, b) => a - b);
+//             // function (a, b) {
+//             //     return a - b;
+//             // });
+//     }
+// }
+// console.log(sortNumber(1, 2, 10, 5))
+
+// // 2.扩展参数
+// const captain = "易建联";
+// const assistant = "郭艾伦";
+// const players = ["翟小川", "赵继伟"]
+
+// // const team = [captain, assistant, players]
+// const team = [captain, assistant, ...players]
+// console.log(team)
+
+// // 3.使用实例
+// const food = [
+//     "汉堡",
+//     "鸡腿",
+//     "薯片"
+// ]
+// const drink = [
+//     "可乐",
+//     "雪碧"
+// ]
+// // const kfc = food.concat(drink)
+// // const kfc = [food, drink]
+// const kfc = [...food, "甜筒", ...drink]
+// console.log(kfc)
+
+
+// 七、其他小技巧
+// 1.默认参数值
+// function orderCombo(comboName, drink){
+// es6之前默认参数 (两种写法)
+// if (drink == undefined){
+//     drink = "可乐"
+// }
+// drink = drink || "可乐"
+//es6默认参数写法
+// function orderCombo(comboName = "汉堡", drink = "可乐") {
+//     console.log(`您点了${comboName}，
+//     饮料是：${drink}。`)
+// }
+// // orderCombo("薯片", "雪碧");
+// orderCombo(undefined, "雪碧");
+
+// // 2.字符串 includes, startsWith, endWith
+// const string = "abc"
+// const substring = "ab"
+// console.log(string.includes(substring)) // 是否包含
+// console.log(string.includes("d"))
+// console.log(string.startsWith(substring)) // 是否以某开头
+// console.log(string.startsWith("b", 1))
+// console.log(string.endsWith(substring)) // 是否以某结尾
+// console.log(string.endsWith("c")) // 是否以某结尾
+
+
+// 3.for...of
+const foods = [
+    "汉堡",
+    "鸡腿",
+    "薯片"
+]
+// for (const food of foods){
+//     console.log(food)
+// }
+for (const [index, food] of foods.entries()){ // 附带位置
+    console.log(`第${index+1}号套餐的食物是${food}`)
+}
+
+// 对象还是用 for..in (其余用 for..of)
 const person = {
     name: "lihao",
     age: 22,
-    city: "湖南"
+    city: "湖南",
+    social: {
+        qq: "897587636",
+        phone: "123"
+    }
 }
-// 1.普通赋值
-const name1 = person.name
-console.log(name1)
-
-//2. 解构赋值
-// object用{}花括号, 里边的变量名和person中一样
-const {name, age, city} = person 
-// const [name, age, city] = person // 数组用[]方括号
-
-console.log(name, age, city)
+for (const key in person){
+    console.log(key, person[key])
+}
