@@ -184,21 +184,28 @@
 // const team = [captain, assistant, ...players]
 // console.log(team)
 
-// // 3.使用实例
-// const food = [
-//     "汉堡",
-//     "鸡腿",
-//     "薯片"
-// ]
-// const drink = [
-//     "可乐",
-//     "雪碧"
-// ]
-// // const kfc = food.concat(drink)
-// // const kfc = [food, drink]
-// const kfc = [...food, "甜筒", ...drink]
-// console.log(kfc)
+// 3.使用实例
+const food = [
+    "汉堡",
+    "鸡腿",
+    "薯片"
+]
+const drink = [
+    "可乐",
+    "雪碧"
+]
+// const kfc = food.concat(drink)
+// const kfc = [food, drink]
+const kfc = [...food, "甜筒", ...drink]
+console.log(kfc)
 
+const a = {
+    "aa": "aaa"
+}
+const b = {
+    "bb": "bbb"
+}
+console.log({...a, ...b})
 
 // 七、其他小技巧
 // 1.默认参数值
